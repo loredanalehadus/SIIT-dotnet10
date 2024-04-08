@@ -3,6 +3,7 @@
 //Handout1();
 Handout2();
 
+//-- this will cause merge conflict
 //Handout 1
 // Write a method that prints if a number read from the console is positive or nagative
 static void Handout1()
