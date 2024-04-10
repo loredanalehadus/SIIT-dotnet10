@@ -1,6 +1,24 @@
-﻿using System.ComponentModel;
+﻿// ⚠️ Overloading not working without the predefined Main() method
+//static int GetMin(int a, int b)
+//{
+//    if (a < b)
+//    {
+//        return a;
+//    }
+//    return b;
+//}
 
-//Handout1();
+//static float GetMin(float a, float b)
+//{
+//    if (a < b)
+//    {
+//        return a;
+//    }
+//    return b;
+//}
+
+
+Handout1();
 Handout2();
 
 // another line of code
@@ -40,7 +58,7 @@ static void Handout2()
 {
     PrintMinFloat();
 
-    static float GetMin(float a, float b)
+    static int GetMin(int a, int b)
     {
         if (a < b)
         {
@@ -51,9 +69,9 @@ static void Handout2()
 
     static void PrintMinFloat()
     {
-        float a = float.Parse(Console.ReadLine());
-        float b = float.Parse(Console.ReadLine());
-        float min = GetMin(a, b);
+        int a = int.Parse(Console.ReadLine());
+        int b = int.Parse(Console.ReadLine());
+        int min = GetMin(a, b);
         Console.WriteLine($"Min between {a} and {b} is {min}");
         //Console.WriteLine($"Min between {a} and {b} is {GetMin(a, b)}");
     }

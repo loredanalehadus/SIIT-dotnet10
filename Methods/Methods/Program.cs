@@ -1,6 +1,5 @@
 ﻿static class Program
 {
-    
     static void Main(string[] args)
     {
         // call the method;
@@ -92,7 +91,7 @@
 
     static void DisplayNumbers(int start = 0, int end = 100)
     {
-        for(int i = start; i <= end; i++)
+        for (int i = start; i <= end; i++)
         {
             Console.Write($"{i}, ");
         }
@@ -105,7 +104,7 @@
     {
         long sum = 0;
 
-        foreach(int numar in numbers)
+        foreach (int numar in numbers)
         {
             sum += numar;
 
