@@ -1,21 +1,21 @@
 ﻿// ⚠️ Overloading not working without the predefined Main() method
-//static int GetMin(int a, int b)
-//{
-//    if (a < b)
-//    {
-//        return a;
-//    }
-//    return b;
-//}
+static int GetMin(int a, int b)
+{
+    if (a < b)
+    {
+        return a;
+    }
+    return b;
+}
 
-//static float GetMin(float a, float b)
-//{
-//    if (a < b)
-//    {
-//        return a;
-//    }
-//    return b;
-//}
+static float GetMin(float a, float b)
+{
+    if (a < b)
+    {
+        return a;
+    }
+    return b;
+}
 
 
 Handout1();
