@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Globalization;
 using System.Text;
 
 public static class Program
@@ -126,28 +127,76 @@ public static class Program
         //Console.WriteLine(stopWacth.Elapsed.TotalSeconds.ToString());
         //64.2847839
 
-        // with string builder
+        // With string builder
 
-        StringBuilder stringBuilder = new StringBuilder();
+        //StringBuilder stringBuilder = new StringBuilder();
 
-        var stopWacth2 = new Stopwatch();
-        string myCoolString = "Counting bottle: ";
+        //var stopWacth2 = new Stopwatch();
+        //string myCoolString = "Counting bottle: ";
 
-        stopWacth2.Start();
+        //stopWacth2.Start();
 
-        stringBuilder.Append(myCoolString);
+        //stringBuilder.Append(myCoolString);
 
-        for (int i = 0; i < 10000; i++)
-        {
-            //myCoolString += i.ToString();
-            stringBuilder.Append(i.ToString());
-            Console.WriteLine(i);
-        }
+        //for (int i = 0; i < 10000; i++)
+        //{
+        //    //myCoolString += i.ToString();
+        //    stringBuilder.Append(i.ToString());
+        //    Console.WriteLine(i);
+        //}
 
-        Console.WriteLine(stringBuilder.ToString());
+        //Console.WriteLine(stringBuilder.ToString());
 
-        stopWacth2.Stop();
-        Console.WriteLine(stopWacth2.Elapsed.TotalSeconds.ToString());
+        //stopWacth2.Stop();
+        //Console.WriteLine(stopWacth2.Elapsed.TotalSeconds.ToString());
         //1.1255619
+
+
+        // String Formatting
+        double d = 0.375;
+        string infoToDisplay = d.ToString("P2");
+        Console.WriteLine(infoToDisplay);
+
+        string myFormattedString = String.Format("{0:F5}", d);
+        Console.WriteLine(myFormattedString);
+
+        // Datetime
+        DateTime myDate = DateTime.Now;
+        Console.WriteLine(myDate);
+
+        var myFormattedDate = String.Format("{0:d.MM.yyyy HH:mm}", myDate);
+        Console.WriteLine(myFormattedDate);
+
+        CultureInfo culture = new CultureInfo("ro-Ro");
+        Console.WriteLine(myDate.ToString("d", culture));
+
+        string myDate2 = "01.05.2024";
+        var tomorrow = myDate.AddDays(1);
+        //var yesterday = myDate2.Add(-1); //this isn't possible
+        DateTime futureDate = DateTime.ParseExact(myDate2, "dd.MM.yyyy", CultureInfo.InvariantCulture);
+        var yesterday = futureDate.AddDays(-1);
+
+
+        // String interpolation
+        string student = "John";
+        string age = "25";
+        string str = $"Student {student} is {age} years old.";
+
+        string myStudent = "John is \"the best\""; //escaping caracther
+        string myStudent2 = "John is 'the best'"; //using single quote
+        string verbatimStudent = @"John is ""the best""";
+
+        string spacedString = "this is " +
+            "my super " +
+            "long string";
+        string verbatimString = @"this 
+is
+my super 
+long 
+string
+";
+        Console.WriteLine("Enter your text using quotes:");
+        string quote = Console.ReadLine();
+
     }
 }
