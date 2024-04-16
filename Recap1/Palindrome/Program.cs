@@ -2,6 +2,16 @@
 
 namespace Palindrome
 {
+    /*
+     Check if a string is palindrome (same value read from left to right and right to left) 
+    Ex: alabala -> True
+    (coc, caiac, aerisirea, luni coc inul)
+
+    Bonus: 
+    The same as before but ignore the white spaces and non-letters.
+    Ex. era sa pozez o pasare, ana-i regina nigeriana
+     */
+
     class Program
     {
         static void Main()

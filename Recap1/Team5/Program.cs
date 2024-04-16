@@ -1,5 +1,13 @@
 ﻿namespace Team5
 {
+    /*
+     Write a method to check whether a string starts with specified characters.
+    ```
+    input: awesome string
+           a
+    output : Yes, starts with a
+    ```
+     */
     class Program
     {
         static void Main()
