@@ -131,24 +131,24 @@
             }
 
             // reading a matrix from console
-            Console.WriteLine("Please give a row size:");
-            int rows = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Please give a row size:");
+            //int rows = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Please give a column size:");
-            int columns = int.Parse(Console.ReadLine());
-            int[,] matrix = new int[rows, columns];
-            String inputNumber;
+            //Console.WriteLine("Please give a column size:");
+            //int columns = int.Parse(Console.ReadLine());
+            //int[,] matrix = new int[rows, columns];
+            //String inputNumber;
 
-            for (int row = 0; row < rows; row++)
-            {
-                for (int column = 0; column < columns; column++)
-                {
-                    Console.Write("matrix[{0},{1}] = ", row, column);
-                    inputNumber = Console.ReadLine();
-                    matrix[row, column] = int.Parse(inputNumber);
-                }
-            }
-            Console.WriteLine(); //use Locals window to check the values in the matrix while in debug mode
+            //for (int row = 0; row < rows; row++)
+            //{
+            //    for (int column = 0; column < columns; column++)
+            //    {
+            //        Console.Write("matrix[{0},{1}] = ", row, column);
+            //        inputNumber = Console.ReadLine();
+            //        matrix[row, column] = int.Parse(inputNumber);
+            //    }
+            //}
+            //Console.WriteLine(); //use Locals window to check the values in the matrix while in debug mode
 
 
             // Jagged arrays
@@ -157,11 +157,41 @@
 
 
             int[][] jagged = new int[3][];
-            jagged[0][0] = 15;
+            // jagged[0][0] = 15;
 
             myMatrix[0, 0] = 15;
 
             //  [ [1, 3, 5], [87, 4324, 4324, 42342], [1] ]
+
+
+            // Properties of Class Array 
+            string[] capitals = { "Sofia", "Washingthon", "Londra", "Paris" };
+
+            Console.WriteLine($"Lungimea arrayului este: {capitals.Length}");
+            Console.WriteLine($"Numarul de dimensiuni al arrayului este: {capitals.Rank}");
+            Console.WriteLine($"Numarul de dimensiuni al matricei este: {myMatrix2.Rank}");
+
+            Console.WriteLine($"Pozitia orasului Londra este {Array.IndexOf(capitals, "Londra")}");
+            Console.WriteLine($"La pozitia 2 se afla orasul {capitals[2]}.");
+
+            // array.Reverse()
+            var reversed = capitals.Reverse();
+            //Array.Reverse(capitals);
+
+            foreach (var city in reversed)
+            {
+                Console.WriteLine(city);
+            }
+
+            Array.Sort(capitals);
+            foreach (var city in capitals)
+            {
+                Console.WriteLine(city);
+            }
+
+            Console.WriteLine(capitals[2]);
+
+            Array.Clear(capitals);
         }
     }
 }
