@@ -59,17 +59,17 @@
             } while (index < daysOfTheWeek.Length);
 
             // Readind array from Console
-            Console.WriteLine("Please give an array size:");
-            int arraySize = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Please give an array size:");
+            //int arraySize = int.Parse(Console.ReadLine());
 
-            int[] myArrayFromConsole = new int[arraySize];
+            //int[] myArrayFromConsole = new int[arraySize];
 
-            Console.WriteLine("Please input the values of the array:");
+            //Console.WriteLine("Please input the values of the array:");
 
-            for (int i = 0; i < arraySize; i++)
-            {
-                myArrayFromConsole[i] = int.Parse(Console.ReadLine());
-            }
+            //for (int i = 0; i < arraySize; i++)
+            //{
+            //    myArrayFromConsole[i] = int.Parse(Console.ReadLine());
+            //}
 
 
             // Coping an array
@@ -96,12 +96,72 @@
 
             intArray = new int[6];
 
-            for(int i=0; i < 5; i++)
+            for (int i = 0; i < 5; i++)
             {
                 intArray[i] = copyArray[i];
             }
 
             intArray[5] = 10;
+
+            // declare and create matrix
+            int[] array = new int[2];
+            array[0] = 1;
+
+            int[,] myMatrix = {
+                { 1, 2 },
+                { 2, 3 }
+            };
+
+            int[,] myMatrix2 = new int[2, 2];
+            myMatrix2[0, 0] = 1;
+            myMatrix2[0, 1] = 5;
+
+            // Printing a matrix
+            // Console.WriteLine(myMatrix); // System.Int32[,]
+
+            for (int row = 0; row < myMatrix.GetLength(0); row++)
+            {
+                for (int column = 0; column < myMatrix.GetLength(1); column++)
+                {
+                    Console.Write(myMatrix[row, column]);
+                    Console.Write(", ");
+                }
+
+                Console.WriteLine();
+            }
+
+            // reading a matrix from console
+            Console.WriteLine("Please give a row size:");
+            int rows = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Please give a column size:");
+            int columns = int.Parse(Console.ReadLine());
+            int[,] matrix = new int[rows, columns];
+            String inputNumber;
+
+            for (int row = 0; row < rows; row++)
+            {
+                for (int column = 0; column < columns; column++)
+                {
+                    Console.Write("matrix[{0},{1}] = ", row, column);
+                    inputNumber = Console.ReadLine();
+                    matrix[row, column] = int.Parse(inputNumber);
+                }
+            }
+            Console.WriteLine(); //use Locals window to check the values in the matrix while in debug mode
+
+
+            // Jagged arrays
+            int[] a = new int[7];
+            a[0] = 15;
+
+
+            int[][] jagged = new int[3][];
+            jagged[0][0] = 15;
+
+            myMatrix[0, 0] = 15;
+
+            //  [ [1, 3, 5], [87, 4324, 4324, 42342], [1] ]
         }
     }
 }
