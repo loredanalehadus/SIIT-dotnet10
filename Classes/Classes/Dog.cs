@@ -6,24 +6,52 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
+    public enum Breed
+    {
+        NotKnown, // 0
+        Beagle,   // 1
+        Dalmatian,
+        Pitbull,
+        Husky
+    }
+
+    enum Level
+    {
+        Begginer = 100,
+        Intermediate = 200,
+        Advanced = 300
+    }
+
     internal class Dog
     {
         // Attributes
 
+        //Constants
+        public const string OWNER = "Gigi"; // compile time
+        public readonly DateTime birthDate; // runtime
+
         // Fields: keep the state of the class
         private string name;
-        private string breed;
-
+        private Breed breed;
+        
         // Constructors
         // parameterless constructor
-        public Dog() 
+
+        public Dog() : this("Undefined", Breed.NotKnown)
         {
-            name = "Undefined";
-            breed = "NotKnown";
+            //name = "Undefined";
+            //breed = "NotKnown";
+            birthDate = DateTime.Now;
         }
 
         // constructor with parameters
-        public Dog(string name, string breed)
+        //public Dog(string name, string breed)
+        //{
+        //    this.name = name;
+        //    this.breed = breed;
+        //}
+
+        public Dog(string name, Breed breed)
         {
             this.name = name;
             this.breed = breed;
@@ -46,12 +74,29 @@ namespace Classes
             }
         }
 
-        public string Breed
+        public Breed Breed
         {
             get { return breed; }
             set { breed = value; }
         }
 
+        public string OwnerName // read only property
+        {
+            get
+            {
+                return OWNER + " " + Name;
+            }
+        }
+
+        public long SecurityNumber { private get; set; } // write-only
+
+        
+        
         // Behavior
+        public void Bark()
+        {
+            Console.WriteLine($"woof woof, I'm {name}");
+        }
+
     }
 }
