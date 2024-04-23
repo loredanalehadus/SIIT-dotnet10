@@ -183,6 +183,7 @@
                 Console.WriteLine(city);
             }
 
+
             Array.Sort(capitals);
             foreach (var city in capitals)
             {
