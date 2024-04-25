@@ -40,7 +40,7 @@
                 //
             }
 
-            var whatLevel = (int) myLevel;
+            var whatLevel = (int)myLevel;
             Console.WriteLine(whatLevel);
 
             Console.WriteLine(Breed.NotKnown);
@@ -51,6 +51,12 @@
                 Name = "Paw",
                 Breed = Breed.Husky
             };
+
+            // access static field;
+            var myDog = new Dog();
+
+            Console.WriteLine($"Number of Dog instances so far is {Dog.numberOfInstances}");
+            Console.WriteLine($"Number of Dog instances so far is {Dog.GetInstanceNumber()}");
         }
     }
 }

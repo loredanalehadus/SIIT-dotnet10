@@ -30,10 +30,13 @@ namespace Classes
         public const string OWNER = "Gigi"; // compile time
         public readonly DateTime birthDate; // runtime
 
+        // Static field
+        public static int numberOfInstances;
+
         // Fields: keep the state of the class
         private string name;
         private Breed breed;
-        
+
         // Constructors
         // parameterless constructor
 
@@ -42,6 +45,7 @@ namespace Classes
             //name = "Undefined";
             //breed = "NotKnown";
             birthDate = DateTime.Now;
+            numberOfInstances++;
         }
 
         // constructor with parameters
@@ -55,6 +59,7 @@ namespace Classes
         {
             this.name = name;
             this.breed = breed;
+            numberOfInstances++;
         }
 
         // Properties
@@ -90,12 +95,19 @@ namespace Classes
 
         public long SecurityNumber { private get; set; } // write-only
 
-        
-        
+
+
         // Behavior
         public void Bark()
         {
             Console.WriteLine($"woof woof, I'm {name}");
+        }
+
+
+        // static metod
+        public static int GetInstanceNumber()
+        {
+            return numberOfInstances;
         }
 
     }
