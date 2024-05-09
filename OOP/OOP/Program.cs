@@ -7,7 +7,8 @@ namespace OOP
         static void Main(string[] args)
         {
             Beagle beagle = new Beagle("Lola");
-            //beagle.name = "baubau";
+            //beagle.name = "baubau";         
+
             beagle.Bark();
             beagle.Eat();
             beagle.DoTrick();
