@@ -1,5 +1,126 @@
-## Inheritance exercise: Person
+# OOP
 
+:::tip
+These problems have as a goal to model the requested functionality, but also to provide the simplest and cleanest implementations. Keep an eye on naming and data types.
+:::
+
+##  Encapsulation:	Class Box
+
+You are given a geometric figure box with parameters length, width and height. Model a class Box that that can be instantiated by the same three parameters. Expose to the outside world only methods for its surface area, lateral surface area and its volume (formulas: http://www.mathwords.com/r/rectangular_parallelepiped.htm).
+
+On the first three lines you will get the length, width and height. On the next three lines print the surface area, lateral surface area and the volume of the box:
+
+Examples
+
+|Input	| Output |
+|-------|--------|
+|2      | Surface Area – 52.00 |
+|3      |   Lateral Surface Area – 40.00 |
+|4      |	Volume – 24.00 |
+
+|Input	| Output |
+|-------|--------|
+|1.3   | Surface Area - 30.20 |
+|1     | Lateral Surface Area - 27.60 |
+|6	   | Volume - 7.80 |
+
+## Interface and Abstraction: Ferrari
+
+### Instructions
+Model an application which contains a class Ferrari and an interface. 
+Your task is simple, you have a car - Ferrari, its model is "488-Spider" and it has a driver. Your Ferrari should have functionality to use brakes and push the gas pedal. When the brakes are pushed down print "Brakes!", and when the gas pedal is pushed down - "Zadu6avam sA!". 
+
+As you may have guessed this functionality is typical for all cars, so you should implement an interface to describe it. 
+
+Your task is to create a Ferrari and set the driver's name to the passed one in the input. After that, print the info. Take a look at the Examples to understand the task better.
+
+**Input**
+On the single input line, you will be given the driver's name.
+
+**Output**
+On the single output line, print the model, the messages from the brakes and gas pedal methods and the driver's name. In the following format:
+```
+<model>/<brakes>/<gas pedal>/<driver's name>
+```
+Example
+```
+488-Spider/Brakes!/Zadu6avam sA!/Carlos Saintz
+```
+
+
+## Polymorphism: Vehicles
+
+### Abstract class: Vehicles
+
+Write a program that models 2 vehicles (`Car` and `Truck`) and simulates driving and refueling them. Car and truck both have **fuel quantity**, **fuel consumption** in liters per km and **can be driven a given distance** and **refueled with a given amount of fuel**. 
+
+It’s summer, so both vehicles use air conditioners and their fuel consumption per km is **increased by 0.9 liters for the car** and with **1.6 liters for the truck**. Also, the truck has a tiny hole in its tank and when **its refueled it keeps only 95%** of the given fuel. The car has no problems and adds all the given fuel to its tank. If a vehicle cannot travel the given distance, its fuel does not change.
+
+**Input**
+* On the first line – information about the car in the format: `"Car {fuel quantity} {liters per km}"`
+* On the second line – info about the truck in the format: `"Truck {fuel quantity} {liters per km}"`
+* On the third line – the number of commands N that will be given on the next N lines
+* On the next N lines – commands in the format:
+    * `"Drive Car {distance}"`
+    * `"Drive Truck {distance}"`
+    * `"Refuel Car {liters}"`
+    * `"Refuel Truck {liters}"`
+
+
+**Output**
+* After each Drive command, if there was enough fuel, print on the console a message in the format:
+  * `"Car/Truck travelled {distance} km" `  
+* If there was not enough fuel, print: `"Car/Truck needs refueling"`
+* After the End command, print the remaining fuel for both the car and the truck, rounded to 2 digits after the floating point in the format:
+  * `Car: {liters}" `
+  * `"Truck: {liters}"`
+
+
+**Examples**
+
+**Input1**
+```
+Car 15 0.3
+Truck 100 0.9
+4
+Drive Car 9
+Drive Car 30
+Refuel Car 50
+Drive Truck 10
+```
+
+**Output1**
+```
+Car travelled 9 km
+Car needs refueling
+Truck travelled 10 km
+Car: 54.20
+Truck: 75.00
+```
+
+**Input 2**
+```
+Car 30.4 0.4
+Truck 99.34 0.9
+5
+Drive Car 500
+Drive Car 13.5
+Refuel Truck 10.300
+Drive Truck 56.2
+Refuel Car 100.2
+```
+
+**Output2**
+```
+Car needs refueling
+Car travelled 13.5 km
+Truck needs refueling
+Car: 113.05
+Truck: 109.13
+```
+
+## Inheritance exercise: Person
+<details>
 You are asked to model an application for storing data about people. You should be able to have a person and a child. The child is derived of the person. Your task is to model the application. The only constraints are:
 -	People should not be able to have negative age
 -	Children should not be able to have age more than 15.
@@ -150,131 +271,45 @@ public override int Age
     }
 }
 ```
-
-###  Encapsulation 
-
-<details>
-<summary>Encapsulation:	Class Box</summary>
-
-You are given a geometric figure box with parameters length, width and height. Model a class Box that that can be instantiated by the same three parameters. Expose to the outside world only methods for its surface area, lateral surface area and its volume (formulas: http://www.mathwords.com/r/rectangular_parallelepiped.htm).
-
-On the first three lines you will get the length, width and height. On the next three lines print the surface area, lateral surface area and the volume of the box:
-
-Examples
-
-|Input	| Output |
-|-------|--------|
-|2      | Surface Area – 52.00 |
-|3      |   Lateral Surface Area – 40.00 |
-|4      |	Volume – 24.00 |
-
-|Input	| Output |
-|-------|--------|
-|1.3   | Surface Area - 30.20 |
-|1     | Lateral Surface Area - 27.60 |
-|6	   | Volume - 7.80 |
-
 </details>
 
-### Interface and Abstraction
-<details>
-<summary>Interface exercise: Ferrari</summary>
+## 1.
+Make an application where to model a animals keeping in mind that:
 
-### Instructions
-Model an application which contains a class Ferrari and an interface. 
-Your task is simple, you have a car - Ferrari, its model is "488-Spider" and it has a driver. Your Ferrari should have functionality to use brakes and push the gas pedal. When the brakes are pushed down print "Brakes!", and when the gas pedal is pushed down - "Zadu6avam sA!". 
+any kind you model is an animal
+any animal has a name
+there are multiple animal categories like : mammals, fish, birds, reptile, insects
+no matter the category, animal are : flying, walking, swim or crawl.
+depending on the way they move, they have a maximum speed.
+there are animals that can swim and walk (Platypus)
+there are animals that can swim, fly and walk (Wild Duck)
+Not any animal that can fly is a bird, the bat is a mammal that flys, and not evey bird flys - the ostrich is a bird but doesn't fly
 
-As you may have guessed this functionality is typical for all cars, so you should implement an interface to describe it. 
+## 2. 
 
-Your task is to create a Ferrari and set the driver's name to the passed one in the input. After that, print the info. Take a look at the Examples to understand the task better.
+Model the Product class knowing that:
 
-**Input**
-On the single input line, you will be given the driver's name.
+* a product has a weight
+* has a name
+* a production date
+* an expiration date
+* it has a producer
+* and it can be in one of categories : Dairy, Fruit, Beverages, Bread
+* we also knoow that it expires differently based on the category it belongs to:
+    * fruits expire in 2 days
+    * beverages expire in 3 years
+    * dairy expire in 1 week
+    * bread expires in 4 days
 
-**Output**
-On the single output line, print the model, the messages from the brakes and gas pedal methods and the driver's name. In the following format:
-```
-<model>/<brakes>/<gas pedal>/<driver's name>
-```
-Example
-```
-488-Spider/Brakes!/Zadu6avam sA!/Carlos Saintz
-```
+## BankAccount
+Simulate a bank account supporting opening/closing, withdrawals, and deposits of money.
 
-</details>
+It should be possible to close an account; operations against a closed account must fail.
 
+Remember you are working with money so you should use an appropriate data type for it.
 
-### Polymorphism
+Now you're asked to implement an economy account. We know that an economy account is similar to a normal bank account, but on each deposit gives you 0.01% extra to the deposited sum, and on withdrawals takes 0.02% from the withdrawed amount.
 
-<details>
-<summary>Abstract class: Vehicles</summary>
-
-Write a program that models 2 vehicles (`Car` and `Truck`) and simulates driving and refueling them. Car and truck both have **fuel quantity**, **fuel consumption** in liters per km and **can be driven a given distance** and **refueled with a given amount of fuel**. 
-
-It’s summer, so both vehicles use air conditioners and their fuel consumption per km is **increased by 0.9 liters for the car** and with **1.6 liters for the truck**. Also, the truck has a tiny hole in its tank and when **its refueled it keeps only 95%** of the given fuel. The car has no problems and adds all the given fuel to its tank. If a vehicle cannot travel the given distance, its fuel does not change.
-
-**Input**
-* On the first line – information about the car in the format: `"Car {fuel quantity} {liters per km}"`
-* On the second line – info about the truck in the format: `"Truck {fuel quantity} {liters per km}"`
-* On the third line – the number of commands N that will be given on the next N lines
-* On the next N lines – commands in the format:
-    * `"Drive Car {distance}"`
-    * `"Drive Truck {distance}"`
-    * `"Refuel Car {liters}"`
-    * `"Refuel Truck {liters}"`
-
-
-**Output**
-* After each Drive command, if there was enough fuel, print on the console a message in the format:
-  * `"Car/Truck travelled {distance} km" `  
-* If there was not enough fuel, print: `"Car/Truck needs refueling"`
-* After the End command, print the remaining fuel for both the car and the truck, rounded to 2 digits after the floating point in the format:
-  * `Car: {liters}" `
-  * `"Truck: {liters}"`
-
-
-**Examples**
-
-**Input1**
-```
-Car 15 0.3
-Truck 100 0.9
-4
-Drive Car 9
-Drive Car 30
-Refuel Car 50
-Drive Truck 10
-```
-
-**Output1**
-```
-Car travelled 9 km
-Car needs refueling
-Truck travelled 10 km
-Car: 54.20
-Truck: 75.00
-```
-
-**Input 2**
-```
-Car 30.4 0.4
-Truck 99.34 0.9
-5
-Drive Car 500
-Drive Car 13.5
-Refuel Truck 10.300
-Drive Truck 56.2
-Refuel Car 100.2
-```
-
-**Output2**
-```
-Car needs refueling
-Car travelled 13.5 km
-Truck needs refueling
-Car: 113.05
-Truck: 109.13
-```
-
-</details>
-
+* Now you want to have a secret account from where you are buying wine or purses. When you make deposits , the deposit is made in an normal account. You can't make withdrawals in october.
+* Now you need to introduce a new account called GameAccount, that you will use online. This account can't make withdrawals, only deposits
+-Since you have so many types of accounts, with different purposes, you need to find a way to extract the common behavior
