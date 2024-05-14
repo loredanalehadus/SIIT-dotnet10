@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Polymorphism", "Polymorphis
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Handout", "Handout\Handout.csproj", "{40B3EA6C-6CCE-4304-A562-EF38839B7D41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MethodOverriding", "MethodHiding\MethodOverriding.csproj", "{AB4194FC-E898-48BA-997B-F03FF0123AE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MethodOverriding", "PolymorphismTypes\MethodOverriding\MethodOverriding.csproj", "{AB4194FC-E898-48BA-997B-F03FF0123AE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractClass", "AbstractClass\AbstractClass.csproj", "{584A1969-4521-45B2-A5D9-63A3079EBC41}"
 EndProject
