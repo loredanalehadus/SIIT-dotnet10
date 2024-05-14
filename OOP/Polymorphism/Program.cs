@@ -11,7 +11,7 @@
             beagle.Bark();
 
             Dog dog = beagle;
-            dog.Bark();
+            dog.Bark();                
         }
 
         // Method overloading
@@ -19,6 +19,11 @@
         public static int Sum(int x, int y)
         {
             return x + y;
+        }
+
+        public static int Sum(int x, int y, int z)
+        {
+            return x + y + z;
         }
 
         //public static int Sum(int x, int y)

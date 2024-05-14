@@ -5,13 +5,23 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOP", "OOP\OOP.csproj", "{AE83CA24-88B8-4A20-A569-820930EA0B72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Encapsulation", "Encapsulation\Encapsulation.csproj", "{4E16C1B0-0084-46AC-BB31-E6CF182EC381}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Encapsulation", "Encapsulation\Encapsulation.csproj", "{4E16C1B0-0084-46AC-BB31-E6CF182EC381}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstraction", "Abstraction\Abstraction.csproj", "{29FB5D2F-6396-4A3E-A2F5-D27F25D7F078}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abstraction", "Abstraction\Abstraction.csproj", "{29FB5D2F-6396-4A3E-A2F5-D27F25D7F078}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Polymorphism", "Polymorphism\Polymorphism.csproj", "{C2A27046-B6BD-4C7F-B5AD-9E884A9C1405}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Polymorphism", "Polymorphism\Polymorphism.csproj", "{C2A27046-B6BD-4C7F-B5AD-9E884A9C1405}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Handout", "Handout\Handout.csproj", "{40B3EA6C-6CCE-4304-A562-EF38839B7D41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Handout", "Handout\Handout.csproj", "{40B3EA6C-6CCE-4304-A562-EF38839B7D41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MethodOverriding", "MethodHiding\MethodOverriding.csproj", "{AB4194FC-E898-48BA-997B-F03FF0123AE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractClass", "AbstractClass\AbstractClass.csproj", "{584A1969-4521-45B2-A5D9-63A3079EBC41}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PolymorphismTypes", "PolymorphismTypes", "{728B549D-FC11-4DB6-A8B9-D3B445C1CB3B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MethodHiding", "PolymorphismTypes\MethodHiding\MethodHiding.csproj", "{E08C9A96-40AB-4861-83AD-C7F2AEA05BFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MethodShadowing", "PolymorphismTypes\MethodShadowing\MethodShadowing.csproj", "{A11C7A56-6D6C-4936-932A-083E31D6F3E9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +49,30 @@ Global
 		{40B3EA6C-6CCE-4304-A562-EF38839B7D41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40B3EA6C-6CCE-4304-A562-EF38839B7D41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40B3EA6C-6CCE-4304-A562-EF38839B7D41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB4194FC-E898-48BA-997B-F03FF0123AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB4194FC-E898-48BA-997B-F03FF0123AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB4194FC-E898-48BA-997B-F03FF0123AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB4194FC-E898-48BA-997B-F03FF0123AE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{584A1969-4521-45B2-A5D9-63A3079EBC41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{584A1969-4521-45B2-A5D9-63A3079EBC41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{584A1969-4521-45B2-A5D9-63A3079EBC41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{584A1969-4521-45B2-A5D9-63A3079EBC41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E08C9A96-40AB-4861-83AD-C7F2AEA05BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E08C9A96-40AB-4861-83AD-C7F2AEA05BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E08C9A96-40AB-4861-83AD-C7F2AEA05BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E08C9A96-40AB-4861-83AD-C7F2AEA05BFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A11C7A56-6D6C-4936-932A-083E31D6F3E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A11C7A56-6D6C-4936-932A-083E31D6F3E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A11C7A56-6D6C-4936-932A-083E31D6F3E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A11C7A56-6D6C-4936-932A-083E31D6F3E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AB4194FC-E898-48BA-997B-F03FF0123AE2} = {728B549D-FC11-4DB6-A8B9-D3B445C1CB3B}
+		{E08C9A96-40AB-4861-83AD-C7F2AEA05BFC} = {728B549D-FC11-4DB6-A8B9-D3B445C1CB3B}
+		{A11C7A56-6D6C-4936-932A-083E31D6F3E9} = {728B549D-FC11-4DB6-A8B9-D3B445C1CB3B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97B56DC4-FFB7-4A0D-8AEC-5B96861D0877}
