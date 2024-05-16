@@ -1,6 +1,4 @@
-﻿using System.Reflection.PortableExecutable;
-
-namespace Exceptions
+﻿namespace Exceptions
 {
     internal class Program
     {
