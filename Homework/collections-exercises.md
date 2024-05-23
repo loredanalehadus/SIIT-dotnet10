@@ -48,29 +48,42 @@ end
 
 **Output**
 
-|Contact Maria does not exist.|
-|Vasile -> 0888080808|
+Contact Maria does not exist.
+
+Vasile -> 0888080808
 
 
 **Input**
 
-|Vasile-+359888001122 |
-|RoYaL(Ivan)-666|
-|Geo-5559393|
-|Simo-02/987665544|
-|search|
-|Simo|
-|simo|
-|RoYaL|
-|RoYaL(Ivan)|
-|end|
+Vasile-+359888001122 
+
+RoYaL(Ivan)-666
+
+Geo-5559393
+
+Simo-02/987665544
+
+search
+
+Simo
+
+simo
+
+RoYaL
+
+RoYaL(Ivan)
+
+end
 
 
 **Output**
 
 Simo -> 02/987665544
+
 Contact simo does not exist.
+
 Contact RoYaL does not exist.
+
 RoYaL(Ivan) -> 666
 
 ## External Resources
