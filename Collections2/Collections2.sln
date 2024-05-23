@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lists", "Collections2\Lists
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stack", "Stack\Stack.csproj", "{6AF2A5D8-21B6-4774-A8D1-B05306E06CFF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queues", "Queues\Queues.csproj", "{49FC3D62-7A84-416D-8E74-19F978A53162}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dictionaries", "Dictionaries\Dictionaries.csproj", "{051DD214-D27B-4A32-9CEE-68D2CC491F0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{6AF2A5D8-21B6-4774-A8D1-B05306E06CFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AF2A5D8-21B6-4774-A8D1-B05306E06CFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AF2A5D8-21B6-4774-A8D1-B05306E06CFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49FC3D62-7A84-416D-8E74-19F978A53162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49FC3D62-7A84-416D-8E74-19F978A53162}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49FC3D62-7A84-416D-8E74-19F978A53162}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49FC3D62-7A84-416D-8E74-19F978A53162}.Release|Any CPU.Build.0 = Release|Any CPU
+		{051DD214-D27B-4A32-9CEE-68D2CC491F0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{051DD214-D27B-4A32-9CEE-68D2CC491F0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{051DD214-D27B-4A32-9CEE-68D2CC491F0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{051DD214-D27B-4A32-9CEE-68D2CC491F0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
