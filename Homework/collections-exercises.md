@@ -36,6 +36,7 @@ As input you will get the contacts in this form `{name}-{number}`. There will be
 After filling this simple phonebook, upon receiving the command **"search"**, your program should be able to perform a search of a contact by name and print her details in format `"{name} -> {number}"` until the **“end”** command is given. In case the contact isn't found, print **"Contact {name} does not exist."** 
 
 **Input**
+
 Vasile-0888080808
 search
 Maria
@@ -43,11 +44,13 @@ Vasile
 end
 
 **Output**
+
 Contact Maria does not exist.
 Vasile -> 0888080808
 
 
 **Input**
+
 Vasile-+359888001122
 RoYaL(Ivan)-666
 Geo-5559393
@@ -61,6 +64,7 @@ end
 
 
 **Output**
+
 Simo -> 02/987665544
 Contact simo does not exist.
 Contact RoYaL does not exist.
