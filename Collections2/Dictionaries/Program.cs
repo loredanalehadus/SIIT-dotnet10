@@ -55,12 +55,25 @@
             Dictionary<string, List<int>> complexDict = new Dictionary<string, List<int>>
             {
                 { "Maria", new List<int>{ 8, 9, 7 } },
-                { "Harry", new List<int>() }
+                { "Harry", new List<int>{ 10, 9, 7} }
             };
+
+            //print the list of grades
+            foreach(var key in complexDict.Keys)
+            {
+                var currentValues = complexDict[key];
+                Console.Write($"{key} grades are: ");
+                foreach(var value in currentValues)
+                {
+                    Console.Write(value);
+                    Console.Write(", ");
+                }
+                Console.WriteLine();    
+            }
 
 
             // dict of students and course with grades 
-            Dictionary<string, Dictionary<string, List<double>>> studentsWithGradesPerCourse = 
+            Dictionary<string, Dictionary<string, List<double>>> studentsWithGradesPerCourse =
                 new Dictionary<string, Dictionary<string, List<double>>>
             {
                 { "Maria",
