@@ -78,6 +78,7 @@ b. **StudentManagement Class:**
 
 5. **Extension Methods:**
 
+- Add class `StudentExtensions.cs` in the existing folder `Extension` (check the existing example `CourseExtensions.cs`).
 - Create an extension method for `List<Student>` to filter students by grade.
 - Create an extension method for `List<Student>` to filter students by age.
 - Create an extension method for `List<Student>` to find a student by name.
