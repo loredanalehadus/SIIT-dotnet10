@@ -121,6 +121,25 @@ ORDER BY MovieCount DESC
 
 
 -- MANY to MAny
+CREATE TABLE Actor (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    FirstName NVARCHAR(50) NOT NULL,
+    LastName NVARCHAR(50) NOT NULL,
+    Nationality NVARCHAR(50),
+    BirthDate DATE,
+    PopularityRating DECIMAL(3,1)
+);
+GO
+
+INSERT INTO Actor (FirstName, LastName, Nationality, BirthDate, PopularityRating)
+VALUES
+('Leonardo', 'DiCaprio', 'American', '1974-11-11', 9.8),
+('Morgan', 'Freeman', 'American', '1937-06-01', 9.5),
+('Scarlett', 'Johansson', 'American', '1984-11-22', 9.3),
+('Tom', 'Hanks', 'American', '1956-07-09', 9.7),
+('Natalie', 'Portman', 'American', '1981-06-09', 9.2);
+GO
+
 CREATE TABLE MovieActor(
 	MovieId INT NOT NULL,
 	ActorId INT NOT NULL,
@@ -130,10 +149,6 @@ CREATE TABLE MovieActor(
 );
 GO
 
-INSERT INTO Actor(Id, FirstName, LastName, Nationality, BirthDate)
-VALUES
-(2, 'Johnny', 'Wactor', 'American', '1986-08-31'),(3, 'Josh', 'Helman', 'Australian', '1986-02-22'),(4, 'Alexandra', 'Daddario', 'American', '1986-03-16'),(5, 'Jessica', 'Gunning', 'British', '1986-01-01'),(6, 'Astrid', 'Berges-Frisbey', 'Spanish', '1986-05-26');
-GO
 -- Insert a movie-actor pair
 INSERT INTO MovieActor (MovieID, ActorID)
 VALUES (1, 1);  -- Assuming MovieID 1 and ActorID 1 exist
