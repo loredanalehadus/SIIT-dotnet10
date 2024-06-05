@@ -166,3 +166,5 @@ SELECT m.Title as MovieTitle, a.FirstName + ' ' + a.LastName AS ActorName
 FROM Movie m 
 JOIN MovieActor ma ON ma.MovieId = m.Id
 JOIN Actor a ON a.Id = ma.ActorId
+
+SELECT (7 + 3) / 2
