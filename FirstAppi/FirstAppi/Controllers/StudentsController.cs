@@ -1,5 +1,4 @@
 ﻿using FirstAppi.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstAppi.Controllers
@@ -24,7 +23,7 @@ namespace FirstAppi.Controllers
 
 
         [HttpGet]
-        public IActionResult GetAllStudents()//GetAll
+        public IActionResult GetAllStudents()//GetAll  //localhost:{port}/api/students
         {
             return Ok(students);
         }
@@ -41,8 +40,8 @@ namespace FirstAppi.Controllers
             return Ok(student);
         }
 
-        //CREATE
-        [HttpPost]
+        //CREATE 
+        [HttpPost] //localhost:{port}/api/students?gender=gender
         public IActionResult Create([FromBody] Student student, [FromHeader] string? culture, [FromQuery] string? gender)
         {
             if (!ModelState.IsValid)
@@ -59,7 +58,7 @@ namespace FirstAppi.Controllers
         }
 
 
-        [HttpPut("{id}")]
+        [HttpPut("{id}")] // //localhost:{port}/api/students/2
         public IActionResult UpdateStudent(int id, Student model)
         {
             if (id != model.Id)
@@ -68,11 +67,25 @@ namespace FirstAppi.Controllers
             }
 
             var studentFromDb = students.FirstOrDefault(x => x.Id == id);
+
+            //equivalent to
+            //Student studentFromDb2;
+            //foreach (var x in students)
+            //{
+            //    if (x.Id == id)
+            //    {
+            //        studentFromDb2 = x;
+            //        break;
+            //    }
+            //}
+
             if (studentFromDb == null)
             {
                 return NotFound();
+
             }
             //update in the database
+            //todo: update with the new values
 
             return Ok(studentFromDb);
             // return Ok();

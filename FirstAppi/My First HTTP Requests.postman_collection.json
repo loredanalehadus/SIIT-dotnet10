@@ -1,0 +1,164 @@
+{
+	"info": {
+		"_postman_id": "81c66040-b7ce-43e2-b3b3-7e8c72388fcd",
+		"name": "My First HTTP Requests",
+		"description": "Building the first request collestion with .NET",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35968031"
+	},
+	"item": [
+		{
+			"name": "Get Students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5075/api/students",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5075",
+					"path": [
+						"api",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Student by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5075/api/students/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5075",
+					"path": [
+						"api",
+						"students",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check if exists",
+			"request": {
+				"method": "HEAD",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5075/api/students/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5075",
+					"path": [
+						"api",
+						"students",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "culture",
+						"value": "ro-RO"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FirstName\": \"Loredana\",\r\n    \"LastName\": \"Radu\",\r\n    \"Age\": 20,\r\n    \"Grade\": 8\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5075/api/students?gender=female",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5075",
+					"path": [
+						"api",
+						"students"
+					],
+					"query": [
+						{
+							"key": "gender",
+							"value": "female"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Student",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"FirstName\": \"Jane\",\r\n    \"LastName\": \"Smith\",\r\n    \"Age\": 21,\r\n    \"Grade\": 9.7,\r\n    \"Id\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5075/api/students/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5075",
+					"path": [
+						"api",
+						"students",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5075/api/students/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5075",
+					"path": [
+						"api",
+						"students",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
