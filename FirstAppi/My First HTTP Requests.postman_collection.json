@@ -140,7 +140,7 @@
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "Delete Student",
 			"request": {
 				"method": "DELETE",
 				"header": [],
