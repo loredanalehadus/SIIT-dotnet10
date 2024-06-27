@@ -1,4 +1,5 @@
 ﻿using FirstAppi.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FirstAppi.Controllers
@@ -21,9 +22,23 @@ namespace FirstAppi.Controllers
                 };
         }
 
+        [HttpGet]
+        [Route("~/")] // translates into http://localhost:{port}/
+        public IActionResult HealthCheck()
+        {
+            return Ok();
+        }
 
         [HttpGet]
-        public IActionResult GetAllStudents()//GetAll  //localhost:{port}/api/students
+        [Route("{id:int:range(1, 100)}/teachers")]
+        public IActionResult GetTeachers(int id)
+        {
+            var teachers =  students.FirstOrDefault(x => x.Id == id).Teachers;
+            return Ok(teachers);
+        }
+
+        [HttpGet]
+        public IActionResult GetAllStudents()//GetAll
         {
             return Ok(students);
         }
@@ -40,8 +55,8 @@ namespace FirstAppi.Controllers
             return Ok(student);
         }
 
-        //CREATE 
-        [HttpPost] //localhost:{port}/api/students?gender=gender
+        //CREATE
+        [HttpPost]
         public IActionResult Create([FromBody] Student student, [FromHeader] string? culture, [FromQuery] string? gender)
         {
             if (!ModelState.IsValid)
@@ -58,7 +73,7 @@ namespace FirstAppi.Controllers
         }
 
 
-        [HttpPut("{id}")] // //localhost:{port}/api/students/2
+        [HttpPut("{id}")]
         public IActionResult UpdateStudent(int id, Student model)
         {
             if (id != model.Id)
@@ -67,25 +82,11 @@ namespace FirstAppi.Controllers
             }
 
             var studentFromDb = students.FirstOrDefault(x => x.Id == id);
-
-            //equivalent to
-            //Student studentFromDb2;
-            //foreach (var x in students)
-            //{
-            //    if (x.Id == id)
-            //    {
-            //        studentFromDb2 = x;
-            //        break;
-            //    }
-            //}
-
             if (studentFromDb == null)
             {
                 return NotFound();
-
             }
             //update in the database
-            //todo: update with the new values
 
             return Ok(studentFromDb);
             // return Ok();

@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace FirstAppi.Models
 {
@@ -13,5 +15,10 @@ namespace FirstAppi.Models
         public int Id { get; set; }
 
         public double Grade { get; set; }
+
+        [EmailAddress]
+        public string Email { get; set; }
+
+        public List<string>? Teachers { get; set; }
     }
 }
