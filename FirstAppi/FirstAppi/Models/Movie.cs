@@ -8,7 +8,7 @@ namespace FirstAppi.Models
     {
         public int Id { get; set; }
 
-        //[Required]
+        [Required]
         [StringLength(50, ErrorMessage = "Title cannot exceed 50 alphanumeric characters" )]
         public string Title { get; set; } = string.Empty;
 

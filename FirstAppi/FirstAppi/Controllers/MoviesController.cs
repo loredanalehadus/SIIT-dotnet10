@@ -80,7 +80,7 @@ namespace FirstAppi.Controllers
         }
 
         [HttpPost] // POST: api/movies
-        public IActionResult Create([FromBody] Movie movie/*, [FromQuery] string genre, [FromHeader] string culture*/)
+        public IActionResult Create([FromBody] Movie movie, [FromQuery] string genre, [FromHeader] string culture)
         {
             // model is valid?
             // if not, return bad request
@@ -95,15 +95,40 @@ namespace FirstAppi.Controllers
             movie.Id = 100;
             movies.Add(movie);
 
-            return CreatedAtAction("Create", new { id = movie.Id }, movie);
-           // return CreatedAtAction(nameof(Create), movie);
+            // return CreatedAtAction("Create", new { id = movie.Id }, movie);
+            return CreatedAtAction(nameof(Create), new { id = movie.Id }, movie);
         }
 
-        //[HttpPut] // 
-        //public IActionResult Update(int id, Movie movie)
-        //{
-        //    return Ok();
-        //}
+        [HttpPut("{id}")] // http://localhost:{port}/api/movies/1 
+        public IActionResult Update(int id, Movie movie)
+        {
+            // check if id exists; else return badRequest
+            // if id exists, get the entity from database/in memory list
+            // if movie not exists -> return not found
+            // return OK updated movie
+
+            if (id != movie.Id)
+            {
+                return BadRequest();
+            }
+
+            var existingMovie = movies.FirstOrDefault(m => m.Id == id);
+            if (existingMovie == null)
+            {
+                return NotFound();
+            }
+
+            movies.Remove(existingMovie);
+
+            existingMovie.Title = movie.Title;
+            existingMovie.Duration = movie.Duration;
+            existingMovie.Rating = movie.Rating;
+            existingMovie.ReleaseDate = movie.ReleaseDate;
+
+            movies.Add(existingMovie);
+
+            return Ok(existingMovie);
+        }
 
     }
 }
