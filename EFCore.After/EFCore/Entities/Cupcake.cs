@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Cupcakes.Models
+namespace Cupcakes.Entities
 {
     public class Cupcake
     {
@@ -29,11 +29,12 @@ namespace Cupcakes.Models
         [Display(Name = "Price:")]
         public double? Price { get; set; }
 
+        [Range(0, 3)]
+        public double? Discount { get; set; }
+
         [Required(ErrorMessage = "Please select a bakery")]
         public int? BakeryId { get; set; }
-
-        [JsonIgnore]
-        [NotMapped]
+                
         public virtual Bakery Bakery { get; set; }
     }
 }

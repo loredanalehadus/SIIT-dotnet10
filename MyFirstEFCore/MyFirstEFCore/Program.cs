@@ -1,4 +1,7 @@
 
+using Microsoft.EntityFrameworkCore;
+using MyFirstEFCore.Data;
+
 namespace MyFirstEFCore
 {
     public class Program
@@ -11,6 +14,11 @@ namespace MyFirstEFCore
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+            // register service for the Database connection
+            builder.Services.AddDbContext<StoreContext>(
+                options => options.UseSqlServer("name=ConnectionStrings:Store"));
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Cupcakes.Models
+namespace Cupcakes.Entities
 {
     public enum CupcakeType
     {

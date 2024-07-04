@@ -1,6 +1,8 @@
 
 using Cupcakes.Data;
+using EFCore.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace EFCore
 {
@@ -12,10 +14,15 @@ namespace EFCore
 
             // Add services to the container.
 
+            builder.Services.AddTransient<ICupcakeRepository, CupcakeRepository>();
+
             builder.Services.AddControllers();
 
             builder.Services.AddDbContext<CupcakeContext>(options =>
-                options.UseSqlServer("name=ConnectionsStrings:CupcakeDb"));
+                options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Cupcake"));
+
+            //     builder.Services.AddDbContext<CupcakeContext>(options =>
+            //options.UseSqlServer(builder.Configuration.GetConnectionString("CupcakeDb")));
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

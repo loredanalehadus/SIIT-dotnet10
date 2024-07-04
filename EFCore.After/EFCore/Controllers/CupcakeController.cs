@@ -1,5 +1,6 @@
 ﻿using Cupcakes.Data;
-using Cupcakes.Models;
+using Cupcakes.Entities;
+using EFCore.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cupcakes.Controllers
@@ -8,96 +9,97 @@ namespace Cupcakes.Controllers
     [Route("[controller]")]
     public class CupcakeController : ControllerBase
     {
-        private CupcakeContext context;
+        private ICupcakeRepository repository;
 
-        public CupcakeController(CupcakeContext context)
+        public CupcakeController(ICupcakeRepository repository)
         {
-            this.context = context;
+            this.repository = repository;
         }
 
         [HttpGet]
         public IActionResult GetAllCupcakes()
         {
-            return Ok(context.Cupcakes.ToList());
+            var allCupcakes = repository.GetAll();
+            return Ok(allCupcakes);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetById(int id)
-        {
-            var cupcake = context.Cupcakes.SingleOrDefault(c => c.CupcakeId == id);
-            if (cupcake == null)
-            {
-                return NotFound();
-            }
-            return Ok(cupcake);
-        }
+        //[HttpGet("{id}")]
+        //public IActionResult GetById(int id)
+        //{
+        //    var cupcake = context.Cupcakes.SingleOrDefault(c => c.CupcakeId == id);
+        //    if (cupcake == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    return Ok(cupcake);
+        //}
 
-        //CREATE
-        [HttpPost]
-        public IActionResult Create([FromBody] Cupcake cupcake)
-        {
-            //todo: need to fix this using models, otherwise will get validation error
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        ////CREATE
+        //[HttpPost]
+        //public IActionResult Create([FromBody] Cupcake cupcake)
+        //{
+        //    //todo: need to fix this using models, otherwise will get validation error
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            context.Cupcakes.Add(cupcake);
-            context.SaveChanges();
+        //    context.Cupcakes.Add(cupcake);
+        //    context.SaveChanges();
 
-            return CreatedAtAction(nameof(GetById), new { id = cupcake.CupcakeId }, cupcake);
-        }
+        //    return CreatedAtAction(nameof(GetById), new { id = cupcake.CupcakeId }, cupcake);
+        //}
 
-        //UPDATE
-        [HttpPut("{id}")]
-        public IActionResult UpdateStudent(int id, Cupcake model)
-        {
-            if (id != model.CupcakeId)
-            {
-                return BadRequest();
-            }
+        ////UPDATE
+        //[HttpPut("{id}")]
+        //public IActionResult UpdateStudent(int id, Cupcake model)
+        //{
+        //    if (id != model.CupcakeId)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            var cupcakeFromDb = context.Cupcakes.SingleOrDefault(c => c.CupcakeId == id);
+        //    var cupcakeFromDb = context.Cupcakes.SingleOrDefault(c => c.CupcakeId == id);
 
-            if (cupcakeFromDb == null)
-            {
-                return NotFound();
-            }
+        //    if (cupcakeFromDb == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            //update in the database
-            var updatedEntity = context.Cupcakes.Update(cupcakeFromDb);
-            context.SaveChanges();
+        //    //update in the database
+        //    var updatedEntity = context.Cupcakes.Update(cupcakeFromDb);
+        //    context.SaveChanges();
 
-            return Ok(updatedEntity);
-        }
+        //    return Ok(updatedEntity);
+        //}
 
-        [HttpHead("{id}")]
-        public IActionResult CheckIfExists(int id)
-        {
-            var cupcakeWithId = context.Cupcakes.SingleOrDefault(c => c.CupcakeId == id);
+        //[HttpHead("{id}")]
+        //public IActionResult CheckIfExists(int id)
+        //{
+        //    var cupcakeWithId = context.Cupcakes.SingleOrDefault(c => c.CupcakeId == id);
 
-            if (cupcakeWithId != null)
-            {
-                return Ok();
-            }
-            return NotFound();
-        }
+        //    if (cupcakeWithId != null)
+        //    {
+        //        return Ok();
+        //    }
+        //    return NotFound();
+        //}
 
 
-        [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
-        {
-            var cupcakeWithId = context.Cupcakes.SingleOrDefault(c => c.CupcakeId == id);
+        //[HttpDelete("{id}")]
+        //public IActionResult Delete(int id)
+        //{
+        //    var cupcakeWithId = context.Cupcakes.SingleOrDefault(c => c.CupcakeId == id);
 
-            if (cupcakeWithId == null)
-            {
-                return NotFound();
-            }
+        //    if (cupcakeWithId == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            context.Cupcakes.Remove(cupcakeWithId);
-            context.SaveChanges();
+        //    context.Cupcakes.Remove(cupcakeWithId);
+        //    context.SaveChanges();
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
     }
 }

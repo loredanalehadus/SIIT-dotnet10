@@ -1,4 +1,4 @@
-﻿using Cupcakes.Models;
+﻿using Cupcakes.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Cupcakes.Data
@@ -19,6 +19,11 @@ namespace Cupcakes.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<Cupcake>()
+            //    .HasOne(t => t.Bakery)
+            //    .WithOne(t => t.Cupcakes);
+
+
             modelBuilder.Entity<Bakery>().HasData(
                new Bakery
                {
@@ -59,7 +64,8 @@ namespace Cupcakes.Data
                     GlutenFree = true,
                     Price = 2.5,
                     BakeryId = 1,
-                    CaloricValue = 355
+                    CaloricValue = 355,
+                    Discount= 0.5
                 },
                 new Cupcake
                 {
@@ -69,7 +75,8 @@ namespace Cupcakes.Data
                     GlutenFree = false,
                     Price = 3.2,
                     BakeryId = 2,
-                    CaloricValue = 195
+                    CaloricValue = 195,
+                    Discount = 1
                 },
                 new Cupcake
                 {
@@ -79,7 +86,8 @@ namespace Cupcakes.Data
                     GlutenFree = false,
                     Price = 4,
                     BakeryId = 3,
-                    CaloricValue = 295
+                    CaloricValue = 295,
+                    Discount = null
                 },
                 new Cupcake
                 {
