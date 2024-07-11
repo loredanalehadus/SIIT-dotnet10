@@ -1,4 +1,9 @@
 
+using Microsoft.EntityFrameworkCore;
+using Store.Controllers;
+using Store.Data;
+using Store.Repositories;
+
 namespace Store
 {
     public class Program
@@ -10,6 +15,13 @@ namespace Store
             // Add services to the container.
 
             builder.Services.AddControllers();
+            builder.Services.AddDbContext<StoreContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("Store")));
+
+            // Add repositories
+            builder.Services.AddScoped<ICategoryRespository, CategoryRespository>();
+
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
