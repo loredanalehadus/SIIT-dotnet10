@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Services", "..\Store.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Mappings", "..\Store.Mappings\Store.Mappings.csproj", "{846D48F4-2092-4C99-A9EB-3A06B8081A37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Models", "..\Models\Store.Models.csproj", "{3C475B91-2BA3-4869-A619-C7F25C65CCC7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{846D48F4-2092-4C99-A9EB-3A06B8081A37}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{846D48F4-2092-4C99-A9EB-3A06B8081A37}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{846D48F4-2092-4C99-A9EB-3A06B8081A37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C475B91-2BA3-4869-A619-C7F25C65CCC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C475B91-2BA3-4869-A619-C7F25C65CCC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C475B91-2BA3-4869-A619-C7F25C65CCC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C475B91-2BA3-4869-A619-C7F25C65CCC7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
