@@ -1,4 +1,4 @@
-namespace Store
+namespace DIExample
 {
     public class WeatherForecast
     {
