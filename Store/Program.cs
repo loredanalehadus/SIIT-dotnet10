@@ -1,8 +1,7 @@
-
 using Microsoft.EntityFrameworkCore;
-using Store.Controllers;
 using Store.Data;
 using Store.Repositories;
+using Store.Services;
 
 namespace Store
 {
@@ -19,8 +18,9 @@ namespace Store
                 options.UseSqlServer(builder.Configuration.GetConnectionString("Store")));
 
             // Add repositories
-            builder.Services.AddScoped<ICategoryRespository, CategoryRespository>();
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

@@ -1,14 +1,13 @@
-﻿using Store.Controllers;
-using Store.Data;
+﻿using Store.Data;
 using Store.Entities;
 
 namespace Store.Repositories
 {
-    public class CategoryRespository : ICategoryRespository
+    public class CategoryRepository : ICategoryRepository
     {
         private readonly StoreContext storeContext;
 
-        public CategoryRespository(StoreContext storeContext)
+        public CategoryRepository(StoreContext storeContext)
         {
             this.storeContext = storeContext;
         }

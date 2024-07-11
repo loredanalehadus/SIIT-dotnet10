@@ -1,8 +1,8 @@
 ﻿using Store.Entities;
 
-namespace Store.Controllers
+namespace Store.Repositories
 {
-    public interface ICategoryRespository
+    public interface ICategoryRepository
     {
         IEnumerable<Category> GetAll();
     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Store.Services;
 
 namespace Store.Controllers
 {
@@ -7,17 +8,19 @@ namespace Store.Controllers
     public class CategoriesController : ControllerBase
     {
         // add CRUD operations with the specific verbs
-        private ICategoryRespository respository;
+        private ICategoryService service;
 
-        public CategoriesController(ICategoryRespository respository)
+        public CategoriesController(ICategoryService service)
         {
-            this.respository = respository;
+            this.service = service;
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAll()
         {
-            return Ok(respository.GetAll());
+            var categories = service.GetAll();
+
+            return Ok(service.GetAll());
         }
     }
 }
