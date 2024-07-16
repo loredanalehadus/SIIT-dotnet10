@@ -35,18 +35,33 @@ namespace Store.Services
             throw new NotImplementedException();
         }
 
-        public Category Update(Category category)
+        public Category Update(CategoryModel categoryModel)
         {
-            throw new NotImplementedException();
+            var categoryToUpdate = mapper.Map<Category>(categoryModel);
+            return categoryRepository.Update(categoryToUpdate);
         }
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            var itemsToDelete = categoryRepository.GetCategoryWithProducts(id);
+
+            if (itemsToDelete != null)
+            {
+                //don't delete items if they have products
+                if(itemsToDelete.Products.Count > 0)
+                {
+                    return false;
+                }
+            }
+
+            var deleted = categoryRepository.Delete(itemsToDelete);
+
+            return deleted;
         }
 
         public bool CheckIfExists(int id)
         {
+            // call methods from repository
             throw new NotImplementedException();
         }
     }

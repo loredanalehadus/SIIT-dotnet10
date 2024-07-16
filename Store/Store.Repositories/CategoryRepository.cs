@@ -1,4 +1,5 @@
-﻿using Store.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using Store.Data;
 using Store.Entities;
 
 namespace Store.Repositories
@@ -26,32 +27,40 @@ namespace Store.Repositories
 
         public Category GetCategory(int id)
         {
-            throw new NotImplementedException();
+            return storeContext.Categories.Find(id);
         }
 
         public Category Update(Category category)
         {
-            throw new NotImplementedException();
+            var updatedCategory = storeContext.Categories.Update(category);
+            storeContext.SaveChanges();
+
+            return updatedCategory.Entity;
         }
 
         public bool Delete(Category category)
         {
-            throw new NotImplementedException();
+            var deleted = storeContext.Categories.Remove(category);
+            var result = storeContext.SaveChanges() > 0;
+            return result;
         }
 
         public bool CheckIfExists(int id)
         {
-            throw new NotImplementedException();
+            return storeContext.Categories.Any(x => x.Categoryid == id);
         }
 
         public bool IsDuplicateCategoryName(string categoryName)
         {
-            throw new NotImplementedException();
+            // todo: recheck this
+            return storeContext.Categories.Where(x => x.Categoryname == categoryName).Any();
         }
 
         public Category GetCategoryWithProducts(int id)
         {
-            throw new NotImplementedException();
+            return storeContext.Categories
+                .Include(x => x.Products)
+                .FirstOrDefault(x => x.Categoryid == id);
         }
     }
 }
