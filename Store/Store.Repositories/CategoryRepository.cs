@@ -16,5 +16,12 @@ namespace Store.Repositories
         {
             return storeContext.Categories;
         }
+
+        public Category Add(Category category)
+        {
+            var itemAdded = storeContext.Categories.Add(category);
+            storeContext.SaveChanges();
+            return itemAdded.Entity;
+        }
     }
 }

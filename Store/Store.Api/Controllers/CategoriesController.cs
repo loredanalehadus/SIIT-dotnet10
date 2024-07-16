@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Store.Models;
 using Store.Services;
 
 namespace Store.Controllers
@@ -21,6 +22,19 @@ namespace Store.Controllers
             var categories = service.GetAll();
 
             return Ok(categories);
+        }
+
+        [HttpPost]
+        public IActionResult Create(CategoryModel categoryModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var category = service.Add(categoryModel);
+
+            return CreatedAtAction(nameof(GetAll), new { id = category.Categoryid }, category);
         }
     }
 }
