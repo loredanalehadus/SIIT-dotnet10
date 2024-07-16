@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Store.Data;
+using Store.Mappings;
 using Store.Repositories;
 using Store.Services;
 
@@ -21,6 +22,10 @@ namespace Store
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             builder.Services.AddScoped<ICategoryService, CategoryService>();
+
+            // Automapper configuration
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            builder.Services.AddAutoMapper(typeof(CategoryProfile));
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

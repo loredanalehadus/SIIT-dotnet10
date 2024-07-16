@@ -20,7 +20,7 @@ namespace Store.Controllers
         {
             var categories = service.GetAll();
 
-            return Ok(service.GetAll());
+            return Ok(categories);
         }
     }
 }
