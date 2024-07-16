@@ -7,6 +7,10 @@ namespace Store.Services
     {
         IEnumerable<CategoryModel> GetAll();
         Category Add(CategoryModel categoryModel);
+        Category GetCategory(int id);
+        Category Update(Category category);
+        bool Delete(int id);
 
+        bool CheckIfExists(int id);
     }
 }

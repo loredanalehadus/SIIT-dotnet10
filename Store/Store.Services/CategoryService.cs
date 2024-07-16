@@ -26,11 +26,28 @@ namespace Store.Services
 
         public Category Add(CategoryModel categoryModel)
         {
-            // transformam modelul in entitate de db
-            // adaugam in db
-
             var categoryToAdd = mapper.Map<Category>(categoryModel);
             return categoryRepository.Add(categoryToAdd);
+        }
+
+        public Category GetCategory(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Category Update(Category category)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CheckIfExists(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

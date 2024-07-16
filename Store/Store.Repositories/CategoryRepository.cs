@@ -23,5 +23,35 @@ namespace Store.Repositories
             storeContext.SaveChanges();
             return itemAdded.Entity;
         }
+
+        public Category GetCategory(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Category Update(Category category)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Delete(Category category)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool CheckIfExists(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsDuplicateCategoryName(string categoryName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Category GetCategoryWithProducts(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

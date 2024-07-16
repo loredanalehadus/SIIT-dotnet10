@@ -2,13 +2,14 @@
 using Store.Models;
 using Store.Services;
 
-namespace Store.Controllers
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace Store.Api.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class CategoriesController : ControllerBase
     {
-        // add CRUD operations with the specific verbs
         private ICategoryService service;
 
         public CategoriesController(ICategoryService service)
@@ -35,6 +36,25 @@ namespace Store.Controllers
             var category = service.Add(categoryModel);
 
             return CreatedAtAction(nameof(GetAll), new { id = category.Categoryid }, category);
+        }
+
+        // GET api/<CategoriesController>/5
+        [HttpGet("{id}")]
+        public string Get(int id)
+        {
+            return "value";
+        }
+
+        // PUT api/<CategoriesController>/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] string value)
+        {
+        }
+
+        // DELETE api/<CategoriesController>/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
         }
     }
 }
