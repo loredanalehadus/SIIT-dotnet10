@@ -24,14 +24,19 @@ namespace Store.Services
             return categoryModels;
         }
 
+        //todo
         public Category Add(CategoryModel categoryModel)
         {
+            //check if duplicate name
+            // if yes, return null
             var categoryToAdd = mapper.Map<Category>(categoryModel);
             return categoryRepository.Add(categoryToAdd);
         }
 
+        //todo
         public Category GetCategory(int id)
         {
+            // call methods from repository
             throw new NotImplementedException();
         }
 
@@ -59,9 +64,10 @@ namespace Store.Services
             return deleted;
         }
 
+        //todo
         public bool CheckIfExists(int id)
         {
-            // call methods from repository
+            // call methods from repository to check if exists
             throw new NotImplementedException();
         }
     }

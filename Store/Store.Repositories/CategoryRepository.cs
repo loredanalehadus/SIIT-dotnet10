@@ -52,7 +52,6 @@ namespace Store.Repositories
 
         public bool IsDuplicateCategoryName(string categoryName)
         {
-            // todo: recheck this
             return storeContext.Categories.Where(x => x.Categoryname == categoryName).Any();
         }
 
