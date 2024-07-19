@@ -36,6 +36,7 @@ namespace Store.Services
                 return null;
             }
 
+            //transformam din model->domain
             var categoryToAdd = mapper.Map<Category>(categoryModel);
 
             var newCategory = categoryRepository.Add(categoryToAdd);

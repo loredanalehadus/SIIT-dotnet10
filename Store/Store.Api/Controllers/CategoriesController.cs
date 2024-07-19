@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using Store.Entities;
 using Store.Models;
 using Store.Services;
 
@@ -52,7 +54,7 @@ namespace Store.Api.Controllers
             var categoryWithId = service.GetCategory(id);
             if (categoryWithId == null)
             {
-                return NotFound();             
+                return NotFound();
             }
 
             return Ok(categoryWithId);
@@ -66,8 +68,15 @@ namespace Store.Api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var category = service.Add(categoryModel);
-            return CreatedAtAction(nameof(GetAll), new { id = category.Categoryid }, category);
+            var addedItem = service.Add(categoryModel);
+            if (addedItem == null)
+            {
+                ModelState.AddModelError("Categoryname", "There is already a item with the same categoryName");
+                return Conflict(ModelState);
+            }
+
+            //returnez 201 Created + entitatea nou creata         
+            return CreatedAtAction(nameof(GetAll), new { id = addedItem.Categoryid }, addedItem);
         }
 
         // PUT api/<CategoriesController>/5
@@ -76,8 +85,11 @@ namespace Store.Api.Controllers
         {
             /*
              * To implement the action we will need to do the following things:
-            •Use the Service class to search in our database for the item that has the identifier sent in the request. We can refer to this as being the “original” item that we need to update.
-            •If we find it, we need to try to update each property with the new values sent in the request body by calling service.Update(model);.
+            •Use the Service class to search in our database for the item that has the 
+                identifier sent in the request. We can refer to this as being the “original” 
+                item that we need to update.
+            •If we find it, we need to try to update each property with the new values sent 
+                in the request body by calling service.Update(model);.
             •If we don’t find the item in our database, return a 404 NotFound status code.
             •Return 200Ok restul and the item that has been updated
              */
@@ -86,12 +98,6 @@ namespace Store.Api.Controllers
             {
                 return BadRequest();
             }
-
-            //var existingItem = service.GetCategory(id);
-            //if (existingItem == null)
-            //{
-            //    return NotFound();
-            //}
 
             var updatedEntity = service.Update(model);
             if (updatedEntity == null)
@@ -108,12 +114,24 @@ namespace Store.Api.Controllers
         {
             /*
              When the request reaches the server, we will have to do the following steps:
- • Use the service class to search in our database for the item that has the identifier sent in the request.
- • If we find it, we simply remove it from the database and return a 204 No Content status code.
- • If we can’t find an item with the specified ID, then we return a 404 Not found status code.
+            • Use the service class to search in our database for the item that has the identifier sent in the request.
+            • If we find it, we simply remove it from the database and return a 204 No Content status code.
+            • If we can’t find an item with the specified ID, then we return a 404 Not found status code.
              */
 
-            return Ok();
+            var existingItem = service.CheckIfExists(id);
+            if (!existingItem)
+            {
+                return NotFound();
+            }
+
+            var deletedItem = service.Delete(id);
+            if (!deletedItem)
+            {
+                ModelState.AddModelError("Products", "You can't deleted this because it has linked products!");
+                return BadRequest(ModelState);
+            }
+            return NoContent();
         }
     }
 }
