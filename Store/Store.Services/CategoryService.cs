@@ -25,25 +25,45 @@ namespace Store.Services
         }
 
         //todo
-        public Category Add(CategoryModel categoryModel)
+        public CategoryModel Add(CategoryModel categoryModel)
         {
             //check if duplicate name
             // if yes, return null
+            var categoryNameExists = categoryRepository.IsDuplicateCategoryName(categoryModel.CategoryName);
+
+            if (categoryNameExists)//category name exista DEJA
+            {
+                return null;
+            }
+
             var categoryToAdd = mapper.Map<Category>(categoryModel);
-            return categoryRepository.Add(categoryToAdd);
+
+            var newCategory = categoryRepository.Add(categoryToAdd);
+
+            return mapper.Map<CategoryModel>(newCategory);
         }
 
         //todo
-        public Category GetCategory(int id)
+        public CategoryModel GetCategory(int id)
         {
             // call methods from repository
-            throw new NotImplementedException();
+            var categoryById = categoryRepository.GetCategory(id);
+            return mapper.Map<CategoryModel>(categoryById);
         }
 
-        public Category Update(CategoryModel categoryModel)
+        public CategoryModel? Update(CategoryModel categoryModel)
         {
-            var categoryToUpdate = mapper.Map<Category>(categoryModel);
-            return categoryRepository.Update(categoryToUpdate);
+            var existingItem = categoryRepository.GetCategory(categoryModel.Categoryid);
+
+            if (existingItem == null)
+            {
+                return null;
+            }
+
+            var categoryToUpdate = mapper.Map(categoryModel, existingItem);
+
+            var categoryFromDb = categoryRepository.Update(categoryToUpdate);
+            return mapper.Map<CategoryModel>(categoryFromDb);
         }
 
         public bool Delete(int id)
@@ -53,7 +73,7 @@ namespace Store.Services
             if (itemsToDelete != null)
             {
                 //don't delete items if they have products
-                if(itemsToDelete.Products.Count > 0)
+                if (itemsToDelete.Products.Count > 0)
                 {
                     return false;
                 }
@@ -68,7 +88,7 @@ namespace Store.Services
         public bool CheckIfExists(int id)
         {
             // call methods from repository to check if exists
-            throw new NotImplementedException();
+            return categoryRepository.CheckIfExists(id);
         }
     }
 }

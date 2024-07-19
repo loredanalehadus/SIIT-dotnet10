@@ -6,9 +6,9 @@ namespace Store.Services
     public interface ICategoryService
     {
         IEnumerable<CategoryModel> GetAll();
-        Category Add(CategoryModel categoryModel);
-        Category GetCategory(int id);
-        Category Update(CategoryModel categoryModel);
+        CategoryModel Add(CategoryModel categoryModel);
+        CategoryModel GetCategory(int id);
+        CategoryModel Update(CategoryModel categoryModel);
         bool Delete(int id);
 
         bool CheckIfExists(int id);

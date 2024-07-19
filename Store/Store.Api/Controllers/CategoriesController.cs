@@ -17,9 +17,8 @@ namespace Store.Api.Controllers
             this.service = service;
         }
 
-        //todo: filter by category from query
         [HttpGet]
-        [Route("/")]
+        //[Route("/")]
         //[Route("getAll")]
         public IActionResult GetAll()
         {
@@ -28,16 +27,17 @@ namespace Store.Api.Controllers
             return Ok(categories);
         }
 
-        [HttpGet(Name = "GetAll")]
-        public IActionResult GetAll(int id, [FromQuery] string name)
-        {
-            var filteredCategories = service.GetAll().Where(x => x.CategoryName == name);
-            return Ok(filteredCategories);
-        }
+        //todo: filter by category from query
+        //[HttpGet(Name = "GetAll")]
+        //public IActionResult GetAll(int id, [FromQuery] string name)
+        //{
+        //    var filteredCategories = service.GetAll().Where(x => x.CategoryName == name);
+        //    return Ok(filteredCategories);
+        //}
 
         // GET api/<CategoriesController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult<CategoryModel> Get(int id)
         {
             /*
              To implement the action we will need to do the following things:
@@ -49,8 +49,13 @@ namespace Store.Api.Controllers
             Return a 404 Not Found status code if there isn’t an item that matches the id value.
             Return a 200 OK status code and the actual item if we found an item that matches the value.
              */
+            var categoryWithId = service.GetCategory(id);
+            if (categoryWithId == null)
+            {
+                return NotFound();             
+            }
 
-            return "value";
+            return Ok(categoryWithId);
         }
 
         [HttpPost]
@@ -77,7 +82,24 @@ namespace Store.Api.Controllers
             •Return 200Ok restul and the item that has been updated
              */
 
-            return Ok();
+            if (id != model.Categoryid)
+            {
+                return BadRequest();
+            }
+
+            //var existingItem = service.GetCategory(id);
+            //if (existingItem == null)
+            //{
+            //    return NotFound();
+            //}
+
+            var updatedEntity = service.Update(model);
+            if (updatedEntity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(updatedEntity);
         }
 
         // DELETE api/<CategoriesController>/5
