@@ -24,7 +24,6 @@ namespace Store.Services
             return categoryModels;
         }
 
-        //todo
         public CategoryModel Add(CategoryModel categoryModel)
         {
             //check if duplicate name
@@ -44,10 +43,8 @@ namespace Store.Services
             return mapper.Map<CategoryModel>(newCategory);
         }
 
-        //todo
         public CategoryModel GetCategory(int id)
         {
-            // call methods from repository
             var categoryById = categoryRepository.GetCategory(id);
             return mapper.Map<CategoryModel>(categoryById);
         }
@@ -85,10 +82,8 @@ namespace Store.Services
             return deleted;
         }
 
-        //todo
         public bool CheckIfExists(int id)
         {
-            // call methods from repository to check if exists
             return categoryRepository.CheckIfExists(id);
         }
     }
