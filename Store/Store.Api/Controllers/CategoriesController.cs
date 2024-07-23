@@ -39,9 +39,8 @@ Return a 200 OK status code and the actual item if we found an item that matches
  */
         #endregion
         [HttpGet("{id}")]
-        public ActionResult<CategoryModel> Get(int id)
+        public IActionResult Get(int id)
         {
-
             var categoryWithId = service.GetCategory(id);
             if (categoryWithId == null)
             {
