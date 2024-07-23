@@ -46,6 +46,14 @@ namespace Store.Services
         public CategoryModel GetCategory(int id)
         {
             var categoryById = categoryRepository.GetCategory(id);
+                        
+            //var newModel = new CategoryModel();
+            //newModel.Categoryid = categoryById.Categoryid;
+            //newModel.CategoryName = categoryById.Categoryname;
+            //newModel.Description = categoryById.Description;
+
+            //instead of the above use mapper
+
             return mapper.Map<CategoryModel>(categoryById);
         }
 
