@@ -20,7 +20,6 @@ namespace Store
 
             // Add repositories
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-
             builder.Services.AddScoped<ICategoryService, CategoryService>();
 
             // Automapper configuration

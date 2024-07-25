@@ -21,6 +21,7 @@ namespace Store.Repositories
         public Category Add(Category category)
         {
             var itemAdded = storeContext.Categories.Add(category);
+
             storeContext.SaveChanges();
             return itemAdded.Entity;
         }
