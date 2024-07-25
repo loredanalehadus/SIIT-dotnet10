@@ -15,7 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Mappings", "Store.Map
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Models", "Store.Models\Store.Models.csproj", "{3C475B91-2BA3-4869-A619-C7F25C65CCC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.UnitTests", "Store.UnitTests\Store.UnitTests.csproj", "{ECA5693E-119D-499A-AA50-01B8991861BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.UnitTests", "Store.UnitTests\Store.UnitTests.csproj", "{ECA5693E-119D-499A-AA50-01B8991861BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.IntegrationTests", "Store.IntegrationTests\Store.IntegrationTests.csproj", "{DAC5EAA0-279A-409B-A97E-653A9D34683B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D43EFD23-3058-4DBA-927C-8BC8EF8CC24C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,9 +55,17 @@ Global
 		{ECA5693E-119D-499A-AA50-01B8991861BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECA5693E-119D-499A-AA50-01B8991861BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECA5693E-119D-499A-AA50-01B8991861BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAC5EAA0-279A-409B-A97E-653A9D34683B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAC5EAA0-279A-409B-A97E-653A9D34683B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAC5EAA0-279A-409B-A97E-653A9D34683B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAC5EAA0-279A-409B-A97E-653A9D34683B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ECA5693E-119D-499A-AA50-01B8991861BE} = {D43EFD23-3058-4DBA-927C-8BC8EF8CC24C}
+		{DAC5EAA0-279A-409B-A97E-653A9D34683B} = {D43EFD23-3058-4DBA-927C-8BC8EF8CC24C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A1212A9-EB8A-4A93-93EA-DF9BFC38A904}
