@@ -66,8 +66,25 @@ namespace Store.Api.Controllers
             •If we don’t find the item in our database, return a 404 NotFound status code.
             •Return 200Ok restul and the item that has been updated
              */
+            if (id != model.Categoryid)
+            {
+                return BadRequest();
+            }
 
-            return Ok();
+            var existingItem = service.GetCategory(id);
+            if (existingItem == null)
+            {
+                return NotFound();
+            }
+
+            var updatedEntity = service.Update(model);
+            if (updatedEntity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(updatedEntity);
+           // return Ok();
         }
 
         // DELETE api/<CategoriesController>/5

@@ -32,7 +32,9 @@ namespace Store.Services
 
         public Category GetCategory(int id)
         {
-            throw new NotImplementedException();
+            return categoryRepository.GetCategory(id);
+            //var categoryById = categoryRepository.GetCategory(id);
+            //return mapper.Map<CategoryModel>(categoryById);
         }
 
         public Category Update(CategoryModel categoryModel)
